@@ -42,7 +42,7 @@ The `AnimationSequenceHost` composable is the core of this library, managing the
 - `startByDefault: Boolean` *(optional, default: `true`)* - Automatically starts animations upon composition if set to `true`.
 - `content: @Composable (scope: SequentialAnimationScope) -> Unit` - The composable content, providing access to the `SequentialAnimationScope` for granular animation control.
 
-### 🎚️ SequentialAnimationScope
+### SequentialAnimationScope
 
 Provides detailed control over animations:
 
