@@ -130,7 +130,7 @@ dependencyResolutionManagement {
 **Step 2. Add the dependency in your build.gradle.kts file**
 ```kotlin
 dependencies {
-    implementation("com.github.pauloaapereira:AnimatedSequence:<version>")
+    implementation("com.github.pauloaapereira:animatedsequence:<version>")
 }
 ```
 Replace `<version>` with the latest release version. [![](https://jitpack.io/v/pauloaapereira/AnimatedSequence.svg)](https://jitpack.io/#pauloaapereira/AnimatedSequence)
