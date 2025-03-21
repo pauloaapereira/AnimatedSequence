@@ -141,7 +141,7 @@ Replace `<version>` with the latest release version. [![](https://jitpack.io/v/p
 
 ## 📌 Contribution
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](#).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/pauloaapereira/AnimatedSequence/issues).
 
 ## 📄 License
 
