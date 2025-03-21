@@ -9,6 +9,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -316,7 +317,7 @@ private class SequentialAnimationHost : SequentialAnimationScope {
 fun AnimationSequenceHost(
     modifier: Modifier = Modifier,
     startByDefault: Boolean = true,
-    content: @Composable (scope: SequentialAnimationScope) -> Unit
+    content: @Composable BoxScope.(scope: SequentialAnimationScope) -> Unit
 ) {
     val parent = LocalSequentialAnimationHost.current
 
