@@ -1,8 +1,8 @@
-# 🎉 AnimationSequenceHost
+# 🎉 AnimationSequence
 
 [![](https://jitpack.io/v/pauloaapereira/AnimatedSequence.svg)](https://jitpack.io/#pauloaapereira/AnimatedSequence)
 
-**AnimationSequenceHost** is a powerful yet intuitive Jetpack Compose library designed to simplify sequential animations in your Android apps. Easily orchestrate elegant, responsive, and hierarchical animations with minimal effort, enhancing user experience and bringing your UI to life.
+**AnimationSequence** is a powerful yet intuitive Jetpack Compose library designed to simplify sequential animations in your Android apps. Easily orchestrate elegant, responsive, and hierarchical animations with minimal effort, enhancing user experience and bringing your UI to life.
 
 <p align="center">
   <img src="./media/example.gif" alt="animated" />
@@ -10,7 +10,7 @@
 
 ---
 
-## ✨ Why Use AnimationSequenceHost?
+## ✨ Why Use AnimationSequence?
 
 - ✅ **Simple & Intuitive**: Effortlessly animate elements sequentially.
 - ✅ **Highly Customizable**: Full control over individual animations, delays, and transitions.
