@@ -141,7 +141,16 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 📄 License
 
-Distributed under the Apache License 2.0. See `LICENSE` for more information.
+Distributed under the Apache License 2.0.
+<a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
+
+## Find this repository useful? :]
+
+Feel free to support me and my new content on: 
+
+<a href="https://www.buymeacoffee.com/ppereira"><img alt="BuyMeACoffee" src="https://badges.aleen42.com/src/buymeacoffee.svg"/></a> 
+
+<a href="https://www.paypal.com/donate?hosted_button_id=68Q9V7ZGGAW2W"><img alt="Paypal" src="https://badges.aleen42.com/src/paypal.svg"/></a> 
 
 ---
 
