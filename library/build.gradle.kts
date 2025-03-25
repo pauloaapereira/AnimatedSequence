@@ -1,8 +1,69 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import com.vanniktech.maven.publish.SonatypeHost
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+
 plugins {
+    alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.maven.publish)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.compose)
+    alias(libs.plugins.kotlinx.atomicfu)
+    alias(libs.plugins.maven.publish)
+}
+
+group = "io.github.pauloaapereira"
+version = "1.1.0"
+
+kotlin {
+    androidTarget {
+        publishLibraryVariants("release")
+
+        compilations.all {
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(JvmTarget.JVM_17)
+                }
+            }
+        }
+    }
+
+    jvm()
+
+    js(IR) {
+        browser()
+    }
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+    }
+
+    macosX64()
+    macosArm64()
+
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach {
+        it.binaries.framework {
+            baseName = "animatedsequence"
+            isStatic = true
+        }
+    }
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material3)
+            implementation(libs.stately.collections)
+            implementation(libs.atomicfu)
+        }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+        }
+    }
 }
 
 android {
@@ -11,18 +72,11 @@ android {
 
     defaultConfig {
         minSdk = 26
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
     }
     compileOptions {
@@ -37,45 +91,39 @@ android {
         kotlinCompilerExtensionVersion = "1.5.15"
     }
 
-    kotlinOptions {
-        jvmTarget = "17"
-    }
     // Ensures JDK 17 is used to compile the Kotlin code.
     kotlin { jvmToolchain(17) }
 }
 
-dependencies {
-    // Core dependencies
-    api(libs.androidx.core.ktx)
-    api(libs.androidx.lifecycle.runtime.ktx)
-    api(libs.androidx.activity.compose)
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
 
-    // Compose BOM and libraries
-    implementation(platform(libs.androidx.compose.bom))
-    api(libs.androidx.ui)
-    api(libs.androidx.ui.graphics)
-    api(libs.androidx.material3)
+    signAllPublications()
 
-    // Testing dependencies
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(libs.androidx.ui.test.junit4)
+    coordinates(group.toString(), "animatedsequence", version.toString())
 
-    // Debug tools
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
-}
+    pom {
+        name.set("AnimatedSequence")
+        description.set("Animate your Jetpack Compose UI effortlessly with smooth, sequential animations using AnimationSequence")
+        url.set("https://github.com/pauloaapereira/animatedsequence")
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
-                groupId = "io.github.pauloaapereira"
-                artifactId = "animatedsequence"
-                version = "1.0.0"
+        licenses {
+            license {
+                name.set("The Apache License, Version 2.0")
+                url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
             }
+        }
+        developers {
+            developer {
+                id.set("pauloaapereira")
+                name.set("Paulo Pereira")
+                email.set("paulo_aa_pereira@outlook.pt")
+            }
+        }
+        scm {
+            url = "https://github.com/pauloaapereira/animatedsequence"
+            connection = "scm:git:git://github.com/pauloaapereira/animatedsequence.git"
+            developerConnection = "scm:git:ssh://git@github.com/pauloaapereira/animatedsequence.git"
         }
     }
 }
