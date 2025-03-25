@@ -1,6 +1,6 @@
 # 🎉 AnimationSequence
 
-[![](https://jitpack.io/v/pauloaapereira/AnimatedSequence.svg)](https://jitpack.io/#pauloaapereira/AnimatedSequence)
+[![](https://img.shields.io/maven-central/v/io.github.pauloaapereira/animatedsequence.svg?label=Maven%20Central)](https://search.maven.org/artifact/io.github.pauloaapereira/animatedsequence)
 
 **AnimationSequence** is a powerful yet intuitive Jetpack Compose library designed to simplify sequential animations in your Android apps. Easily orchestrate elegant, responsive, and hierarchical animations with minimal effort, enhancing user experience and bringing your UI to life.
 
@@ -10,9 +10,20 @@
 
 ---
 
+## 🌍 Now with Compose Multiplatform Support!
+
+As of **version 1.1.0**, `AnimationSequence` supports **Jetpack Compose Multiplatform**, allowing you to create rich animated UIs not only for Android, but also for **iOS**,  **Desktop** and **Web (Wasm)** (where supported).
+
+In addition:
+- We’ve moved to **Maven Central** for publishing (JitPack doesn't support multiplatform yet!).
+- New dependency coordinates: `io.github.pauloaapereira:animatedsequence`.
+
+---
+
 ## ✨ Why Use AnimationSequence?
 
 - ✅ **Simple & Intuitive**: Effortlessly animate elements sequentially.
+- ✅ **Multiplatform Ready**: Works across Android, iOS, Desktop, and Web (Wasm).
 - ✅ **Highly Customizable**: Full control over individual animations, delays, and transitions.
 - ✅ **Hierarchical Animations**: Seamlessly manage nested animations.
 - ✅ **Robust**: Efficient resource cleanup and error handling built-in.
@@ -117,27 +128,31 @@ When the parent exits, all children automatically perform their exit animations 
 
 ## ⚙️ Installation
 
-**Step 1. Add the JitPack repository to your build file**
+> 🆕 **Now available on Maven Central!**
 
-In your `settings.gradle.kts` (or `settings.gradle`) file, add:
+**Step 1. Add the Maven Central repository** (if not already included)**
+
+In your `settings.gradle.kts` (or `settings.gradle`):
 
 ```kotlin
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         mavenCentral()
-        maven { url = uri("https://jitpack.io") }
+        // others ...
     }
 }
 ```
 
-**Step 2. Add the dependency in your build.gradle.kts file**
+**Step 2. Add the dependency in your `build.gradle.kts`:**
+
 ```kotlin
 dependencies {
-    implementation("com.github.pauloaapereira:animatedsequence:<version>")
+    implementation("io.github.pauloaapereira:animatedsequence:<version>")
 }
 ```
-Replace `<version>` with the latest release version. [![](https://jitpack.io/v/pauloaapereira/AnimatedSequence.svg)](https://jitpack.io/#pauloaapereira/AnimatedSequence)
+
+Replace `<version>` with the latest release version. [![](https://img.shields.io/maven-central/v/io.github.pauloaapereira/animatedsequence.svg?label=Maven%20Central)](https://search.maven.org/artifact/io.github.pauloaapereira/animatedsequence)
 
 ## 📌 Contribution
 
