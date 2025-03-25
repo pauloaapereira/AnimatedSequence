@@ -154,6 +154,68 @@ dependencies {
 
 Replace `<version>` with the latest release version. [![](https://img.shields.io/maven-central/v/io.github.pauloaapereira/animatedsequence.svg?label=Maven%20Central)](https://search.maven.org/artifact/io.github.pauloaapereira/animatedsequence)
 
+## ▶️ Running the Samples
+
+Want to see `AnimationSequence` in action? We've included a full **multiplatform sample app** in the `sample/` folder with targets for **Android**, **iOS**, **Desktop**, and **Web**.
+
+### 🛠️ Steps to Run:
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/pauloaapereira/AnimatedSequence.git
+cd AnimatedSequence
+```
+
+---
+
+### 📱 Android
+
+If you're using **Android Studio**, the Android sample should be **runnable right away**.  
+The IDE will automatically detect the run configuration from the `androidApp` module.
+
+---
+
+### 🍏 iOS
+
+You may need to manually create a run configuration the first time:
+
+1. Go to **Run > Edit Configurations**
+2. Click the **`+`** button → select **iOS Application**
+3. Select the `.xcodeproj` file inside the `iosApp/` folder (root of the project)
+4. Choose the **`iosApp`** scheme and **Debug** configuration
+5. Select an execution target (usually auto-selected)
+
+> ✅ You can now run the iOS sample on a simulator or a real device.
+
+---
+
+### 🖥️ Desktop
+
+To run the desktop sample:
+
+```bash
+./gradlew run
+```
+
+### 🌐 Web (Wasm)
+
+To run the WebAssembly sample in development mode:
+
+```bash
+./gradlew wasmJsBrowserDevelopmentRun -t
+```
+
+> 🔁 The `-t` flag enables **continuous build**, so it will reload when you make changes.
+
+> 🌐 The app will open in your default browser, usually at [http://localhost:8080](http://localhost:8080).
+
+---
+
+You can explore and modify each sample target in the `sample/` folder as you'd like.
+
+If you run into any issues or missing configurations, feel free to [open an issue](https://github.com/pauloaapereira/AnimatedSequence/issues) — contributions and improvements are welcome!
+
 ## 📌 Contribution
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/pauloaapereira/AnimatedSequence/issues).
