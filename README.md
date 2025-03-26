@@ -6,6 +6,7 @@
 
 <p align="center">
   <img src="./media/example.gif" alt="animated" />
+  <img src="./media/example2.gif" alt="animated" />
 </p>
 
 ---
