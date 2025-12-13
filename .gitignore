@@ -94,3 +94,9 @@ kotlin-ide/
 .kotlin/
 .teamcity/
 .npmrc
+
+# Xcode user-specific files
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
