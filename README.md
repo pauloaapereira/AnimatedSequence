@@ -161,13 +161,18 @@ AnimationSequenceHost {
 **Parameters:**
 
 - `modifier: Modifier` *(optional)* - Modifier applied to the animated content.
-- `key: Any?` *(optional)* - Stable key for identity. Required for lazy lists.
 - `index: Int?` *(optional)* - Explicit slot to reserve in the animation order. If null, automatically assigned based on composition order.
-- `animateOnce: Boolean` *(optional, default: `false`)* - If true, item only animates on first appearance.
 - `delayAfterAnimation: Long` *(optional, default: `400ms`)* - Delay before the next animation starts.
 - `enter: EnterTransition` *(optional, default: `fadeIn` with 300ms duration)* - Defines the animation when entering.
 - `exit: ExitTransition` *(optional, default: `fadeOut` with 300ms duration)* - Defines the animation when exiting.
 - `content: @Composable () -> Unit` - The content to be animated.
+
+**Advanced parameters** *(for edge cases — prefer `LazyAnimationHost` for lazy lists)*:
+
+- `key: Any?` *(optional)* - Stable key for identity. Use with `animateOnce`.
+- `animateOnce: Boolean` *(optional, default: `false`)* - If true, item animates immediately and won't re-animate if it leaves/re-enters composition.
+
+> **Note:** For lazy lists (`LazyColumn`, `LazyRow`, etc.), use `LazyAnimationHost` with `animatedItems()` instead — it provides staggered animations, scroll tracking, and exit animations out of the box.
 
 **Mixing Explicit and Auto Indices:**
 
@@ -308,6 +313,18 @@ LazyAnimationHost { scope ->
 - ✅ **Clean API**: No manual state management needed.
 - ✅ **Consistent with AnimationSequenceHost**: Familiar pattern for the whole library.
 
+### Why not just use `AnimatedVisibility`?
+
+| Feature | `AnimatedVisibility` alone | `LazyAnimationHost` |
+|---------|----------------------------|---------------------|
+| **Stagger timing** | ❌ Manual calculation | ✅ Automatic cascade |
+| **No re-animation on scroll** | ❌ Track yourself | ✅ Built-in |
+| **Exit animations on remove** | ❌ Item disposed immediately | ✅ `trackItems()` handles it |
+| **Replay all animations** | ❌ Manual state reset | ✅ `scope.reset()` |
+| **Scoped cleanup** | ❌ Manual | ✅ Automatic |
+
+`AnimatedVisibility` is low-level — you manage everything yourself. `LazyAnimationHost` gives you beautiful cascading animations, smart scroll tracking, and proper exit animations with minimal code.
+
 ---
 
 ## 🎯 Advanced Example
@@ -375,8 +392,6 @@ When the parent exits, all children automatically perform their exit animations 
    ```
 
 2. **Lazy List Support**: New `LazyAnimationHost` and `animatedItems` for beautiful staggered animations in lazy lists.
-
-3. **New Parameters**: `key` and `animateOnce` for advanced use cases (lazy lists, conditional items).
 
 #### Breaking Changes
 
