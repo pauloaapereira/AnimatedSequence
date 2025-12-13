@@ -11,13 +11,11 @@
 
 ---
 
-## 🌍 Now with Compose Multiplatform Support!
+## 🌍 Compose Multiplatform Support!
 
-As of **version 2.0.0**, `AnimationSequence` supports **Jetpack Compose Multiplatform**, allowing you to create rich animated UIs not only for Android, but also for **iOS**,  **Desktop** and **Web (Wasm)** (where supported).
+Since **version 1.1.0**, `AnimationSequence` supports **Jetpack Compose Multiplatform**, allowing you to create rich animated UIs not only for Android, but also for **iOS**, **Desktop** and **Web (Wasm)** (where supported).
 
-In addition:
-- We’ve moved to **Maven Central** for publishing (JitPack doesn't support multiplatform yet!).
-- New dependency coordinates: `io.github.pauloaapereira:animatedsequence`.
+Available on **Maven Central** with coordinates: `io.github.pauloaapereira:animatedsequence`.
 
 ---
 
@@ -387,8 +385,6 @@ None! All existing APIs work exactly as before.
 ---
 
 ## ⚙️ Installation
-
-> 🆕 **Now available on Maven Central!**
 
 **Step 1. Add the Maven Central repository** (if not already included)**
 
