@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "io.github.pauloaapereira"
-version = "2.0.0"
+version = "2.0.0-kotlin2.1"
 
 kotlin {
     androidTarget {
