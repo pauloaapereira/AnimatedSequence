@@ -74,7 +74,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "io.github.pauloaapereira"
                 artifactId = "animatedsequence"
-                version = "1.0.0"
+                version = "2.0.0"
             }
         }
     }
